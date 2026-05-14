@@ -420,23 +420,10 @@ function iniciarTimer() {
     timerSeg--;
     atualizarTimer();
     if (timerSeg <= 0) {
-      pararTimer();
-      respostas.push({
-        questao: qAtual + 1,
-        eixo: EIXOS[QUESTOES[qAtual].eixoIdx].nome,
-        resposta: 'sem_resposta',
-        acertou: false
-      });
-      qAtual++;
-      if (qAtual < QUESTOES.length) {
-        const proxEixo = QUESTOES[qAtual].eixoIdx;
-        const eixoAnt  = QUESTOES[qAtual - 1].eixoIdx;
-        if (proxEixo !== eixoAnt) mostrarEixo(proxEixo);
-        else carregarQuestao();
-      } else {
-        enviarDados();
-      }
-    }
+  pararTimer();
+  timerSeg = 0;
+  atualizarTimer();
+}
   }, 1000);
 }
 
